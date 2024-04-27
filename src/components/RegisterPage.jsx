@@ -1,12 +1,14 @@
 
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 
 const RegisterPage = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   
   // const [error, setError] = useState(null);
     const handleRegister = async (e) => {
@@ -21,7 +23,12 @@ const RegisterPage = () => {
       console.log(user);
       createUser(email, password)
       .then(result => {
-      console.log(result.user);
+        if (result.user) Swal.fire({
+        title: 'success!',
+        text: 'You Have Added a Crafts Item',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
       })
       .catch(error =>{
         console.log(error.message);
