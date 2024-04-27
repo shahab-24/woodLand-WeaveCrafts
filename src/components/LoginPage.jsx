@@ -2,6 +2,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const LoginPage = () => {
   const {logInUser, googleLogIn} = useContext(AuthContext);
@@ -18,7 +19,12 @@ const LoginPage = () => {
       console.log(user);
       logInUser(email, password)
       .then(result => {
-      console.log(result.user);
+        if (result.user) Swal.fire({
+          title: 'success!',
+          text: 'You Have loged in successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
       })
       .catch(error =>{
         console.log(error.message);
@@ -73,7 +79,7 @@ const LoginPage = () => {
       <div className='flex justify-between'>
       <div className="p-2 mt-6">
       
-          <button onClick={handleGoogleLogIn} className="btn btn-primary btn-outline">Login with GOOGLE</button>
+          <button onClick={()=>handleGoogleLogIn()} className="btn btn-primary btn-outline">Login with GOOGLE</button>
         </div>
         <div className="p-2 mt-6">
           <button className="btn btn-primary btn-outline">Login with GITHUB</button>

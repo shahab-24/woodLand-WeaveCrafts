@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 const Headers = () => {
+  const {user, logOut} = useContext(AuthContext);
 
     const navlinks = <>
      <li><NavLink to='/'>Home</NavLink></li>
@@ -11,6 +14,7 @@ const Headers = () => {
      <li><NavLink to='/addcrafts'>Add items</NavLink></li>
      <li><NavLink to='/myCard'>My Craft list</NavLink></li>
      <li><NavLink to='/gallery'>Galleries</NavLink></li>
+     <li><NavLink to='/subcategory'>All Categories</NavLink></li>
         
         
       
@@ -36,7 +40,19 @@ const Headers = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/login' className="btn">Login</Link>
+  {/* {
+    user?.email ? <div>
+    {/* <p>{user.name}</p> */
+    /* <Link onClick={logOut} className="btn">
+    Log Out</Link>
+    </div>
+     : 
+    <Link to='/login' className="btn">Login</Link> */
+
+  }
+
+  <Link to='/login' className="btn">Login</Link>
+    
   </div>
 </div>
     </div>

@@ -21,14 +21,28 @@ const RegisterPage = () => {
 
       const user = {name, email, password};
       console.log(user);
+
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+      if (!passwordRegex.test(password)) {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Password must contain at least 6 characters with at least one uppercase and one lowercase letter.',
+          icon: 'error',
+          confirmButtonText: 'Okay'
+        });
+        return;
+      }
+
+
+
       createUser(email, password)
       .then(result => {
         if (result.user) Swal.fire({
         title: 'success!',
-        text: 'You Have Added a Crafts Item',
+        text: 'You Have Registered successfully',
         icon: 'success',
         confirmButtonText: 'Cool'
-      })
+      }).then (() => navigate('/login'));
       })
       .catch(error =>{
         console.log(error.message);

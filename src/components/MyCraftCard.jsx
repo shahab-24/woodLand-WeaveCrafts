@@ -35,7 +35,7 @@ const MyCraftCard = ({cards, items, setItems}) => {
 
           Swal.fire({
           title: "Deleted!",
-          text: "Your Crafts has been deleted.",
+          text: "Your Crafts has been deleted successfully.",
           icon: "success"
         }
         

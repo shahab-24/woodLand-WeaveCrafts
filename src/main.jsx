@@ -23,6 +23,8 @@ import UpdatePage from './components/UpdatePage';
 import Gallery from './components/Gallery';
 import About from './components/About';
 import AllCraftsPage from './components/AllCraftsPage';
+import SubCategory from './components/SubCategory';
+import CategoryPage from './components/CategoryPage';
 
 const router = createBrowserRouter([
   {
@@ -53,7 +55,9 @@ const router = createBrowserRouter([
         path: 'viewdetails/:id',
         element: 
           <ViewDetailsPage></ViewDetailsPage>
-      ,
+        ,
+          
+      
         loader: ({ params }) => fetch(`http://localhost:4000/viewdetails/${params.id}`)
       },
       {
@@ -76,6 +80,16 @@ const router = createBrowserRouter([
       {
         path:'/allcrafts',
         element: <AllCraftsPage></AllCraftsPage>
+      },
+      {
+        path: '/subcategory',
+        element: <SubCategory></SubCategory>,
+        
+      },
+      {
+        path: '/category',
+        element: <CategoryPage></CategoryPage>,
+        loader:  () => fetch('http://localhost:4000/category')
       }
     ]
   },

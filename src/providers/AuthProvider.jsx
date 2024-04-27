@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import  { createContext, useEffect, useState } from 'react';
 import auth from '../firebase.init';
 import { GoogleAuthProvider } from 'firebase/auth/cordova';
@@ -26,6 +26,11 @@ const AuthProvider = ({children}) => {
     
   }
 
+  const logOut = () => {
+    setLoading(true)
+    return signOut(AuthContext)
+  }
+
   const googleLogIn = () =>{
     setLoading(true);
     return signInWithPopup(auth, googleProvider)
@@ -46,7 +51,8 @@ const AuthProvider = ({children}) => {
     loading,
   createUser,
   logInUser,
-  googleLogIn
+  googleLogIn,
+  logOut
 }
 
   return (
