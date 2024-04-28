@@ -2,12 +2,18 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import CraftsCard from "./CraftsCard";
 import Gallery from "./Gallery";
+import { useState } from "react";
+import CategoryPage from "./CategoryPage";
 
 
 
 const HomePage = () => {
   const crafts = useLoaderData();
- 
+
+  
+
+
+
   return (
     <div className="">
         <Banner></Banner>
@@ -28,6 +34,7 @@ const HomePage = () => {
         }
         
         </div>
+   
         <Gallery></Gallery>
         <h2 className="text-4xl font-bold text-center mt-6 text-gray-400">Customers Review</h2>
 
