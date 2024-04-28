@@ -15,6 +15,7 @@ const Headers = () => {
      <li><NavLink to='/myCard'>My Craft list</NavLink></li>
      <li><NavLink to='/gallery'>Galleries</NavLink></li>
      <li><NavLink to='/subcategory'>All Categories</NavLink></li>
+     <li><NavLink to='/category'>Category cards</NavLink></li>
         
         
       

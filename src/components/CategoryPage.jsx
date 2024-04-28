@@ -10,9 +10,9 @@ const CategoryPage = () => {
   
 
   return (
-    <div>
-      <h3>categories: {categoryCards.length}</h3>
-      <div className="craftsContainer mx-auto bg-[whitesmoke] transition border-2 border-accent hover:scale-105  hover:border-secondary border-opacity-30 rounded-3xl">
+    <div className='mb-10 mt-10'>
+      <h3 className='text-4xl font-bold text-center text-gray-500'>All Categories</h3>
+      <div className="grid md:grid-cols-2 gap-8 mb-10 mt-10 craftsContainer mx-auto">
         {
           categoryCards.map(category => <CategoryCard key={category._id} categories={category}></CategoryCard>)
         }

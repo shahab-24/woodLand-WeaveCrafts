@@ -1,17 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CategoryCard = ({categories}) => {
 
-  const {_id, image, itemName, category, desc, info} = categories;
+  const { image, itemName, category, desc, info} = categories;
   return (
     <div>
-      <div className="card craftsContainer mx-auto card-side bg-base-100 shadow-xl">
-  <figure><img src={image}  className="w-1/2 object-cover rounded h-90"  alt="Movie"/></figure>
+      <div className="card craftsContainer mx-auto  shadow-xl  bg-[whitesmoke] transition border-2 border-accent hover:scale-105  hover:border-secondary border-opacity-30 rounded-3xl ">
+  <figure><img src={image}  className="w-full rounded h-[100%] object-cover p-4"  alt="Movie"/></figure>
   <div className="card-body">
-    <h2 className="card-title">New movie is released!</h2>
-    <p>Click the button to watch on Jetflix app.</p>
+    <h2 className="card-title">{itemName}</h2>
+    <p>{desc}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Watch</button>
+      <Link to={``}>
+
+        <button className="btn btn-primary bg-orange-400">View Details</button>
+      </Link>
     </div>
   </div>
 </div>

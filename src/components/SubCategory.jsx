@@ -57,7 +57,7 @@ const SubCategory = () => {
   return (
     <div className="craftsContainer pt-10">
     <div className="bg-[#F4F3F0] p-24">
-   <h2 className="text-3xl font-extrabold mb-10 text-center">Categories ITEMS</h2>
+   <h2 className="text-3xl font-extrabold mb-10 text-center">Add Category ITEMS</h2>
    <form onSubmit={handleAddSubCategory}>
    {/* name and quantity */}
      <div className="md:flex gap-4 md-8">

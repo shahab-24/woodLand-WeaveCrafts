@@ -4,6 +4,7 @@ import CraftsCard from "./CraftsCard";
 import Gallery from "./Gallery";
 import { useState } from "react";
 import CategoryPage from "./CategoryPage";
+import CategoryCard from "./CategoryCard";
 
 
 
@@ -34,8 +35,13 @@ const HomePage = () => {
         }
         
         </div>
+        <div>
+          <CategoryPage></CategoryPage>
+        </div>
+        
    
         <Gallery></Gallery>
+        
         <h2 className="text-4xl font-bold text-center mt-6 text-gray-400">Customers Review</h2>
 
         <div className="mb-10 mt-6 craftsContainer grid md:grid-cols-3 gap-4">
