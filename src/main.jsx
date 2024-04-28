@@ -25,6 +25,7 @@ import About from './components/About';
 import AllCraftsPage from './components/AllCraftsPage';
 import SubCategory from './components/SubCategory';
 import CategoryPage from './components/CategoryPage';
+import CardDetails from './components/CardDetails';
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
           
       
         loader: ({ params }) => fetch(`http://localhost:4000/viewdetails/${params.id}`)
+      },
+      {
+        path: 'cardDetails/:category',
+        element: <CardDetails></CardDetails>,
+        loader: ({ params }) => fetch(`http://localhost:4000/cardDetails/${params.category}`)
       },
       {
         path: '/mycard',
