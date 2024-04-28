@@ -1,37 +1,45 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 
 const Headers = () => {
   const {user, logOut} = useContext(AuthContext);
+  console.log(user);
+  const navigate = useNavigate();
 
     const navlinks = <>
      <li><NavLink to='/'>Home</NavLink></li>
      
      <li><NavLink to='/about'>About</NavLink></li>
      <li><NavLink to='/allcrafts'>All crafts items</NavLink></li>
-     <li><NavLink to='/addcrafts'>Add items</NavLink></li>
-     <li><NavLink to='/myCard'>My Craft list</NavLink></li>
+    
      <li><NavLink to='/gallery'>Galleries</NavLink></li>
      <li><NavLink to='/subcategory'>All Categories</NavLink></li>
      <li><NavLink to='/category'>Category cards</NavLink></li>
         
-        
+        {user && <>
+          <li><NavLink to='/addcrafts'>Add items</NavLink></li>
+     <li><NavLink to='/myCard'>My Craft list</NavLink></li>
+        </>
+
+        }
       
     </>
 
     const handleLogOut = () => {
       logOut()
-      .then((result) =>
-    {
-      if(result?.user) Swal.fire({
-        title: 'success!',
-        text: 'You Have loged out successfully',
-        icon: 'success',
-        confirmButtonText: 'Cool'
-      })})
+      .then(result => {
+        if (result.user) Swal.fire({
+          title: 'success!',
+          text: 'You Have logged out successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+        console.log(result.user);
+        navigate('/login')
+      })
     .catch(error => {
       console.log(error.message);
     })
@@ -57,19 +65,22 @@ const Headers = () => {
     </ul>
   </div>
   <div className="navbar-end">
- {
-  user ? <> <span className="text-sm">{user.email} </span>
-  <Link to='/login' onClick={handleLogOut} className="btn btn-primary"> Log Out</Link>
-  </> : <Link to='/login'>
-    <button className="btn btn-sm">Sign in</button>
-  </Link>
- }
-
-  
-
-  
-    
-  </div>
+          {user ? (
+            <>
+              <span className="text-sm" title={user.displayName}>{user.photoURL && <img src={user.photoURL} alt="User" className="w-8 h-8 rounded-full" />} {user.displayName}</span>
+              <button onClick={handleLogOut} className="btn btn-primary">Log Out</button>
+            </>
+          ) : (
+            <>
+              <Link to='/login'>
+                <button className="btn btn-sm">Sign in</button>
+              </Link>
+              <Link to='/register'>
+                <button className="btn btn-sm">Register</button>
+              </Link>
+            </>
+          )}
+        </div>
 </div>
     </div>
   );

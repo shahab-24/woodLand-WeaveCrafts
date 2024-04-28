@@ -12,7 +12,7 @@ const AllCraftsPage = () => {
 
   const fetchCraftItems = async () => {
     try {
-      const response = await fetch('http://localhost:4000/crafts');
+      const response = await fetch(' https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/crafts');
       const data = await response.json();
       setCraftItems(data);
     } catch (error) {

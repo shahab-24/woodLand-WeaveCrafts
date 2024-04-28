@@ -1,11 +1,12 @@
 
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 const LoginPage = () => {
   const {logInUser, googleLogIn} = useContext(AuthContext);
+  const navigate = useNavigate();
 
 
     const handleLogin = (e) => {
@@ -21,10 +22,11 @@ const LoginPage = () => {
       .then(result => {
         if (result.user) Swal.fire({
           title: 'success!',
-          text: 'You Have loged in successfully',
+          text: 'You Have logged in successfully',
           icon: 'success',
           confirmButtonText: 'Cool'
         })
+        navigate('/')
       })
       .catch(error =>{
         console.log(error.message);

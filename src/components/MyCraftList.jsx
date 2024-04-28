@@ -16,7 +16,7 @@ const MyCraftList = () => {
 
  useEffect(() => {
   if(user) {
-    fetch(`http://localhost:4000/myCard/${user?.email}`)
+    fetch(` https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/myCard/${user?.email}`)
   .then((res) => res.json())
   .then((data) => {
     setItems(data);

@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <HomePage></HomePage>,
-        loader: () => fetch('http://localhost:4000/crafts')
+        loader:() => fetch(' https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/crafts')
       },
       {
         path: '/login',
@@ -49,31 +49,35 @@ const router = createBrowserRouter([
       ,
       {
         path: '/addcrafts',
-        element: <AddCrafts></AddCrafts>,
+        element: <PrivateRoute><AddCrafts></AddCrafts></PrivateRoute>,
         
       },
       {
         path: 'viewdetails/:id',
         element: 
-          <ViewDetailsPage></ViewDetailsPage>
+          <PrivateRoute><ViewDetailsPage></ViewDetailsPage>
+          </PrivateRoute>
         ,
           
       
-        loader: ({ params }) => fetch(`http://localhost:4000/viewdetails/${params.id}`)
+        loader: ({ params }) => fetch(` https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/viewdetails/${params.id}`)
       },
       {
         path: 'cardDetails/:category',
         element: <CardDetails></CardDetails>,
-        loader: ({ params }) => fetch(`http://localhost:4000/cardDetails/${params.category}`)
+        loader: ({ params }) => fetch(` https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/cardDetails/${params.category}`)
       },
       {
         path: '/mycard',
-        element: <MyCraftList></MyCraftList>
+        element:<PrivateRoute> <MyCraftList></MyCraftList>
+        </PrivateRoute>
       },
       {
         path: '/updateCard/:id',
-        element: <UpdatePage></UpdatePage>,
-        loader: ({params}) => fetch(`http://localhost:4000/updateCard/${params.id}`)
+        element: <PrivateRoute>
+          <UpdatePage></UpdatePage>
+        </PrivateRoute>,
+        loader: ({params}) => fetch(` https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/updateCard/${params.id}`)
       },
       {
         path: '/gallery',
@@ -95,7 +99,7 @@ const router = createBrowserRouter([
       {
         path: '/category',
         element: <CategoryPage></CategoryPage>,
-        loader:  () => fetch('http://localhost:4000/category')
+        loader:  () => fetch(' https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/category')
       }
     ]
   },

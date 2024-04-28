@@ -32,7 +32,7 @@ const SubCategory = () => {
   console.log(categoryInfo);
 
 
-    fetch("http://localhost:4000/subcategory",{
+    fetch(" https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/subcategory",{
       method: "POST",
       headers: { "Content-type": "application/json" },
       body:JSON.stringify(categoryInfo)
