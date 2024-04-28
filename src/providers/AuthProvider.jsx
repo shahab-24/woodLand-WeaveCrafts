@@ -28,7 +28,7 @@ const AuthProvider = ({children}) => {
 
   const logOut = () => {
     setLoading(true)
-    return signOut(AuthContext)
+    return signOut(auth);
   }
 
   const googleLogIn = () =>{
@@ -42,7 +42,9 @@ const AuthProvider = ({children}) => {
       setLoading(false);
     });
 
-    return unsubscribe;
+    return () => {
+      unsubscribe();
+    } 
   }, []);
 
 

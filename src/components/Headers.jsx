@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Headers = () => {
@@ -21,8 +22,23 @@ const Headers = () => {
       
     </>
 
+    const handleLogOut = () => {
+      logOut()
+      .then((result) =>
+    {
+      if(result?.user) Swal.fire({
+        title: 'success!',
+        text: 'You Have loged out successfully',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })})
+    .catch(error => {
+      console.log(error.message);
+    })
+    }
+
   return (
-    <div className="shadow-2xl mt-4">
+    <div className="mx-auto shadow-2xl mt-4">
        <div className="navbar bg-gray-400 rounded-xl">
   <div className="navbar-start">
     <div className="dropdown">
@@ -33,7 +49,7 @@ const Headers = () => {
        {navlinks}
       </ul>
     </div>
-    <a className="btn btn-ghost text-3xl font-bold text-orange-400">WoodLandWeaveCrafts</a>
+    <a className="btn btn-ghost text-3xl font-bold text-orange-400">WoodLandCrafts</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -41,18 +57,17 @@ const Headers = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  {/* {
-    user?.email ? <div>
-    {/* <p>{user.name}</p> */
-    /* <Link onClick={logOut} className="btn">
-    Log Out</Link>
-    </div>
-     : 
-    <Link to='/login' className="btn">Login</Link> */
+ {
+  user ? <> <span className="text-sm">{user.email} </span>
+  <Link to='/login' onClick={handleLogOut} className="btn btn-primary"> Log Out</Link>
+  </> : <Link to='/login'>
+    <button className="btn btn-sm">Sign in</button>
+  </Link>
+ }
 
-  }
+  
 
-  <Link to='/login' className="btn">Login</Link>
+  
     
   </div>
 </div>
