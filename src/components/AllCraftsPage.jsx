@@ -6,19 +6,28 @@ const AllCraftsPage = () => {
 
   const [craftItems, setCraftItems] = useState([]);
 
-  useEffect(() => {
-    fetchCraftItems();
-  }, []);
 
-  const fetchCraftItems = async () => {
-    try {
-      const response = await fetch(' https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/crafts');
-      const data = await response.json();
-      setCraftItems(data);
-    } catch (error) {
-      console.error('Error fetching craft items:', error);
-    }
-  };
+  useEffect(()=>{
+    
+    fetch('woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/crafts')
+    .then(res => res.json())
+    .then(data => setCraftItems(data))
+  },[])
+
+  // useEffect(() => {
+  //   fetchCraftItems();
+  // }, []);
+
+  // const fetchCraftItems = async () => {
+  //   try {
+  //     const res = await fetch('woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/crafts');
+  //     const data = await res.json();
+  //     console.log(data);
+  //     setCraftItems(data);
+  //   } catch (error) {
+  //     console.error('Error fetching craft items:', error)
+  //   }
+  // };
 
   return (
     <div className="craftsContainer text-center mx-auto mb-10">

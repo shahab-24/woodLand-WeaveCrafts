@@ -10,6 +10,7 @@ import CategoryCard from "./CategoryCard";
 
 const HomePage = () => {
   const crafts = useLoaderData();
+  console.log(crafts);
 
   
 
@@ -28,7 +29,7 @@ const HomePage = () => {
         
         
         {
-          crafts.map(craft => <CraftsCard key={crafts._id} craft={craft}
+          crafts.map(craft => <CraftsCard key={craft._id} craft={craft}
           >
 
           </CraftsCard>)

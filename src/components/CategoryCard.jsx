@@ -12,6 +12,7 @@ const CategoryCard = ({categories}) => {
   <div className="card-body">
     <h2 className="card-title">{itemName}</h2>
     <p>{desc}</p>
+    <p>{info}</p>
     <div className="card-actions justify-end">
       <Link to={`/cardDetails/${category}`}>
 

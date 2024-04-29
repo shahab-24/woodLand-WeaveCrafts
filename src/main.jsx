@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <HomePage></HomePage>,
-        loader:() => fetch(' https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/crafts')
+        loader:() => fetch('woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/crafts')
       },
       {
         path: '/login',
@@ -60,12 +60,12 @@ const router = createBrowserRouter([
         ,
           
       
-        loader: ({ params }) => fetch(` https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/viewdetails/${params.id}`)
+        loader: ({ params }) => fetch(`woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/viewdetails/${params.id}`)
       },
       {
         path: 'cardDetails/:category',
         element: <CardDetails></CardDetails>,
-        loader: ({ params }) => fetch(` https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/cardDetails/${params.category}`)
+        loader: ({ params }) => fetch(`woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/cardDetails/${params.category}`)
       },
       {
         path: '/mycard',
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <UpdatePage></UpdatePage>
         </PrivateRoute>,
-        loader: ({params}) => fetch(` https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/updateCard/${params.id}`)
+        loader: ({params}) => fetch(`woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/updateCard/${params.id}`)
       },
       {
         path: '/gallery',
@@ -99,7 +99,7 @@ const router = createBrowserRouter([
       {
         path: '/category',
         element: <CategoryPage></CategoryPage>,
-        loader:  () => fetch(' https://woodland-weave-crafts-server-7no6hpbe7-shahab-uddins-projects.vercel.app/category')
+        loader:  () => fetch('woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/category')
       }
     ]
   },
