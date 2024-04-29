@@ -11,7 +11,7 @@ const CategoryPage = () => {
 
   return (
     <div className='mb-10 mt-10'>
-      <h3 className='text-4xl font-bold text-center text-gray-500'>All Categories</h3>
+      <h3 className='text-4xl font-bold text-center text-gray-500'>Arts & Crafts Categories</h3>
       <div className="grid md:grid-cols-2 gap-8 mb-10 mt-10 craftsContainer mx-auto">
         {
           categoryCards.map(category => <CategoryCard key={category._id} categories={category}></CategoryCard>)
