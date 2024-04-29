@@ -32,7 +32,7 @@ const UpdatePage = () => {
   
 
 // fetrching data frim
-    fetch(`woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/updateCard/${_id}`,{
+    fetch(`https://woodland-weave-crafts-server.vercel.app/updateCard/${_id}`,{
       method: "PuT",
       headers: { "Content-type": "application/json" },
       body:JSON.stringify(updateInfo)

@@ -28,7 +28,7 @@ const AddCrafts = () => {
     console.log(info);
 
   
-      fetch("woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/addcrafts",{
+      fetch("https://woodland-weave-crafts-server.vercel.app/addcrafts",{
         method: "POST",
         headers: { "Content-type": "application/json" },
         body:JSON.stringify(info)

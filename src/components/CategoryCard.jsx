@@ -8,7 +8,7 @@ const CategoryCard = ({categories}) => {
     <Link to={`/cardDetails/${category}`}>
       <div>
       <div className="card craftsContainer mx-auto  shadow-xl  bg-[whitesmoke] transition border-2 border-accent hover:scale-105  hover:border-secondary border-opacity-30 rounded-3xl ">
-  <figure><img src={image}  className="w-full rounded h-[100%] object-cover p-4"  alt="Movie"/></figure>
+  <figure><img src={image}  className="w-full rounded h-[100%] object-left p-4"  alt="Movie"/></figure>
   <div className="card-body">
     <h2 className="card-title">{itemName}</h2>
     <p>{desc}</p>

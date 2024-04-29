@@ -23,7 +23,7 @@ const MyCraftCard = ({cards, items, setItems}) => {
       if (result.isConfirmed) {
     
 
-        fetch(`woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/viewdetails/${_id}`,{
+        fetch(`https://woodland-weave-crafts-server.vercel.app/viewdetails/${_id}`,{
           method: "DELETE"
         })
         .then(res => res.json())

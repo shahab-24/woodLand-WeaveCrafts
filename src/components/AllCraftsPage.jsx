@@ -9,7 +9,7 @@ const AllCraftsPage = () => {
 
   useEffect(()=>{
     
-    fetch('woodland-weave-crafts-server-9l7r3dxhb-shahab-uddins-projects.vercel.app/crafts')
+    fetch('https://woodland-weave-crafts-server.vercel.app/crafts')
     .then(res => res.json())
     .then(data => setCraftItems(data))
   },[])
