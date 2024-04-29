@@ -2,17 +2,21 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import CraftsCard from "./CraftsCard";
 import Gallery from "./Gallery";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CategoryPage from "./CategoryPage";
 import CategoryCard from "./CategoryCard";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 
 const HomePage = () => {
   const crafts = useLoaderData();
+  const {loading} = useContext(AuthContext)
   console.log(crafts);
 
-  
+  if(loading) {
+    return <span className="loading loading-bars loading-lg"></span>
+  }
 
 
 

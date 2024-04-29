@@ -3,7 +3,11 @@ import { AuthContext } from "../providers/AuthProvider";
 import Swal from 'sweetalert2'
 
 const AddCrafts = () => {
-  const  { user } = useContext(AuthContext);
+  const  { user , loading } = useContext(AuthContext);
+
+  if(loading) {
+    return <span className="loading loading-bars loading-lg"></span>
+  }
 
 
     const handleAddcrafts = (e) => {

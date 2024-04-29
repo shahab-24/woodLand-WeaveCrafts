@@ -39,20 +39,34 @@ const LoginPage = () => {
     console.log('google login');
 
       googleLogIn()
-      .then((result) =>{
-      console.log(result.user)
+      .then(result => {
+        if (result.user) Swal.fire({
+          title: 'success!',
+          text: 'You Have logged in successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+        navigate('/')
       })
       .catch((error) =>{
         console.log(error.message)
       })
 
     }
+
+
     const handleGithubLogIn = () => {
-    console.log('google login');
+    console.log('github login');
 
       githubLogin()
-      .then((result) =>{
-      console.log(result.user)
+      .then(result => {
+        if (result.user) Swal.fire({
+          title: 'success!',
+          text: 'You Have logged in successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+        navigate('/')
       })
       .catch((error) =>{
         console.log(error.message)

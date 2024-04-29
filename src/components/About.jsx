@@ -2,9 +2,11 @@
 const About = () => {
   return (
     <div className="text-center mb-10 mt-10 space-y-4">
+
+<img src="/public/photo-1513519245088-0e12902e5a38.avif" alt="" />
       <p className="text-l font-semibold text-center">
         
-
+<h2>Welcome to Woodland Weave Crafts!</h2>
 
 About Us.....
 

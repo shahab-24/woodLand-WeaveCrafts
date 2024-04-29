@@ -5,6 +5,7 @@ import MyCraftCard from "./MyCraftCard";
 
 const MyCraftList = () => {
  const {user} = useContext(AuthContext);
+ console.log(user);
  
 
  const [items, setItems] = useState([]);
@@ -16,7 +17,7 @@ const MyCraftList = () => {
 
  useEffect(() => {
   if(user) {
-    fetch(`https://woodland-weave-crafts-server.vercel.app/myCard/${user?.email}`)
+    fetch(`https://woodland-weave-crafts-server.vercel.app/myCard/${user?.email || user}`)
   .then((res) => res.json())
   .then((data) => {
     setItems(data);
