@@ -5,7 +5,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 const LoginPage = () => {
-  const {logInUser, googleLogIn} = useContext(AuthContext);
+  const {logInUser, googleLogIn, githubLogin} = useContext(AuthContext);
   const navigate = useNavigate();
 
 
@@ -39,6 +39,18 @@ const LoginPage = () => {
     console.log('google login');
 
       googleLogIn()
+      .then((result) =>{
+      console.log(result.user)
+      })
+      .catch((error) =>{
+        console.log(error.message)
+      })
+
+    }
+    const handleGithubLogIn = () => {
+    console.log('google login');
+
+      githubLogin()
       .then((result) =>{
       console.log(result.user)
       })
@@ -81,10 +93,10 @@ const LoginPage = () => {
       <div className='flex justify-between'>
       <div className="p-2 mt-6">
       
-          <button onClick={()=>handleGoogleLogIn()} className="btn btn-primary btn-outline">Login with GOOGLE</button>
+          <button onClick={handleGoogleLogIn} className="btn btn-primary btn-outline">Login with GOOGLE</button>
         </div>
         <div className="p-2 mt-6">
-          <button className="btn btn-primary btn-outline">Login with GITHUB</button>
+          <button onClick={handleGithubLogIn} className="btn btn-primary btn-outline">Login with GITHUB</button>
         </div>
       </div>
     </div>
