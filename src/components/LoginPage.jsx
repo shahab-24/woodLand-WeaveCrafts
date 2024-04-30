@@ -5,7 +5,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 const LoginPage = () => {
-  const {logInUser, googleLogIn, githubLogin} = useContext(AuthContext);
+  const {logInUser, googleLogIn, githubLogin, loading} = useContext(AuthContext);
   const navigate = useNavigate();
 
 
@@ -77,6 +77,9 @@ const LoginPage = () => {
   return (
     <div>
       <div className="hero min-h-screen bg-gray-400">
+      {loading && 
+    <>return <span className="loading loading-bars loading-lg"></span></>
+  }
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Login now!</h1>

@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import dark from '../../public/dark.png'
+import light from '../../public/light.png'
 
 
-const Headers = () => {
+const Headers = ({ setDarkMode, darkMode }) => {
   const {user, logOut} = useContext(AuthContext);
   console.log(user);
   const navigate = useNavigate();
@@ -65,6 +67,18 @@ const Headers = () => {
     </ul>
   </div>
   <div className="navbar-end">
+  <div className=" w-[50px]">
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className=" p-1 mr-3 flex items-center"
+            >
+              <img
+                className="md:w-full   w-10 object-cover"
+                src={darkMode ? light : dark}
+                alt=""
+              />
+            </button>
+          </div>
           {user ? (
             <>
               <span className="text-sm" title={user.displayName}>{user.photoURL && <img src={user.photoURL} alt="User" className="w-8 h-8 rounded-full" />} {user.displayName}</span>

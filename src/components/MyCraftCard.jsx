@@ -64,12 +64,12 @@ const MyCraftCard = ({cards, items, setItems}) => {
   <div className="card-body">
     <h2 className="card-title text-4xl font-bold">{itemName}</h2>
     <p>{desc}</p>
-    <p>{category}</p>
+    <p><span className="text-l font-bold text-orange-400">Sub_Category:</span> {category}</p>
     <div className='flex justify-between'>
-    <p>{rating}</p>
-    <p>{processTime}</p>
+    <p><span className="text-l font-bold text-orange-400">rating: </span>{rating}</p>
+    <p><span className="text-l font-bold text-orange-400">Processing_Time:</span> {processTime}</p>
     </div>
-    <p>{price}</p>
+    <p><span className="text-l font-bold text-orange-400">Price:</span> {price}</p>
     <div className="card-actions justify-end flex">
      <Link to={`/updateCard/${_id}`}>
      <button className="btn btn-gray-400">Update</button>

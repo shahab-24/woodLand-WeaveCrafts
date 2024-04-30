@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 const AllCraftsPage = () => {
-
+  const {loading} = useContext(AuthContext)
   const [craftItems, setCraftItems] = useState([]);
 
 
@@ -31,6 +32,9 @@ const AllCraftsPage = () => {
 
   return (
     <div className="craftsContainer text-center mx-auto mb-10">
+    {loading && 
+    <>return <span className="loading loading-bars loading-lg"></span></>
+  }
     <h2 className="text-2xl text-center font-bold text-gray-600 mt-6">All Art & Craft Items</h2>
     <table className="text-center border-4">
       <thead>
@@ -44,11 +48,11 @@ const AllCraftsPage = () => {
       <tbody className="border-2">
         {craftItems.map((item) => (
           <tr className="border-2" key={item.id}>
-            <td className="border-2">{item.itemName}</td>
+            <td className="border-2 font-bold">{item.itemName}</td>
             <td className="border-2">{item.price}</td>
-            <td className="border-2">{item.category}</td>
+            <td className="border-2 font-semibold">{item.category}</td>
             <td className="text-center p-4">
-              <Link to={`/viewdetails/${item._id}`} className="btn hover:bg-[orange]">View Details</Link>
+              <Link to={`/viewdetails/${item._id}`} className="btn bg-[gray] hover:bg-[orange]">View Details</Link>
             </td>
           </tr>
         ))}
